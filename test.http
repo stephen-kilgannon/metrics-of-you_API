@@ -2,5 +2,23 @@ POST http://localhost:3000/users HTTP/1.1
 content-type: application/json
 
 {
-    "name": "yu"
+    "name": "stephen"
+}
+
+###
+GET http://localhost:3000/users HTTP/1.1
+
+
+###
+GET http://localhost:3000/users/me HTTP/1.1
+
+
+###
+POST http://localhost:3000/tasks HTTP/1.1
+content-type: application/json
+
+{
+    "title": "TASK_01",
+    "type": "TYPE_01",
+    "user":  "633de993e6229d82cc1d1b88"
 }

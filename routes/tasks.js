@@ -1,25 +1,26 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../util/models/User');
+const Task = require('../util/models/Task');
 
 
-/* GET users listing. */
+/* GET tasks listing. */
 
 router.get('/', async (req, res, next) => {
-  const user = await User.find()
-  res.send(user);
+  const task = await Task.find()
+  res.send(task);
 });
 
 router.get('/me', async (req, res, next) => {
-  const user = await User.findByName('stephen')
-  res.send(user);
+  const task = await Task.findByName('stephen')
+  res.send(task);
 });
 
 router.post('/', function(req, res, next){
-  var newUser = new User(req.body);
-  newUser.save()
+  var newtask = new Task(req.body);
+  newtask.save()
        .then(item => {
-           res.json(newUser);
+            console.log(newtask)
+           res.json(newtask);
    })
    .catch(err => {
       console.log(err)

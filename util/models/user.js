@@ -7,7 +7,7 @@ const userSchema = new Schema({
   createdAt: {
     type: Date,
     immutable: true,
-    default: new Date(),
+    default: () => Date.now(),
   },
   updatedAt: {
     type: Date,
@@ -15,6 +15,15 @@ const userSchema = new Schema({
   },
   skills: [String],
 });
+
+
+userSchema.statics.findByName = function(name){
+  return this.where({name: new RegExp(name,"i")})
+}
+
+userSchema.statics.findByID = function(id){
+  return this.findByID(id)
+}
 
 
 // Export model
