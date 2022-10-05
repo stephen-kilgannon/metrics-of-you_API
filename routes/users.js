@@ -5,17 +5,17 @@ const User = require('../util/models/User');
 
 /* GET users listing. */
 
-router.get('/', async (req, res, next) => {
+router.get('/', async (req, res) => {
   const user = await User.find()
   res.send(user);
 });
 
-router.get('/me', async (req, res, next) => {
+router.get('/me', async (req, res) => {
   const user = await User.findByName('stephen')
   res.send(user);
 });
 
-router.post('/', function(req, res, next){
+router.post('/', function(req, res){
   var newUser = new User(req.body);
   newUser.save()
        .then(item => {
