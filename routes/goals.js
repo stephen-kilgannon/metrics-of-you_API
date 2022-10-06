@@ -1,27 +1,26 @@
 const express = require('express');
 const router = express.Router();
-const Task = require('../util/models/Task');
-const User = require('../util/models/User');
+const Goal = require('../util/models/Goal');
 
 
 /* GET tasks listing. */
 
 router.get('/', async (req, res, next) => {
-  const task = await Task.find()
-  res.send(task);
+  const goal = await Goal.find()
+  res.send(goal);
 });
 
 router.get('/me', async (req, res, next) => {
-  const task = await Task.findByName('stephen')
-  res.send(task);
+  const goal = await Goal.findByName('stephen')
+  res.send(goal);
 });
 
 router.post('/', function(req, res, next){
-  var newtask = new Task(req.body);
-  newtask.save()
+  var newgoal = new Goal(req.body);
+  newgoal.save()
        .then(item => {
-            console.log(newtask)
-           res.json(newtask);
+            console.log(item)
+           res.json(newgoal);
    })
    .catch(err => {
       console.log(err)

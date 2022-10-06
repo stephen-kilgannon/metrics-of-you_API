@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { findOne } = require("./Task");
 
 const Schema = mongoose.Schema;
 
@@ -14,6 +15,7 @@ const userSchema = new Schema({
     default: () => Date.now(),
   },
   skills: [String],
+  goals: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Goal' }]
 });
 
 
@@ -25,6 +27,18 @@ userSchema.statics.findByID = function(id){
   return this.findByID(id)
 }
 
+userSchema.statics.getUserGoals = function(id){
+ return  this.findByID(id)
+}
+
+
+userSchema.statics.addGoal = function(user,goal) {
+  return this.updateOne({name: user},{$set: {goals : goal}});
+}
 
 // Export model
-module.exports = mongoose.model("User", userSchema);
+const User  = mongoose.model("User", userSchema);
+
+module.exports ={
+  User : User,
+}

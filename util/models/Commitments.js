@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 
-const goalSchema = new Schema({
-    title: String,
+const commitmentSchema = new Schema({
+    title: [String],
     type: String,
     createdAt: {
       type: Date,
@@ -15,9 +15,9 @@ const goalSchema = new Schema({
       type: Date,
       default: () => Date.now(),
     },
-    user: [{type : mongoose.Schema.Types.ObjectId, ref: 'User'}],
+    user: String,
   });
 
 
 // Export model
-module.exports = mongoose.model("Goal", goalSchema);
+module.exports = mongoose.model("Commitment", commitmentSchema);

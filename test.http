@@ -2,23 +2,15 @@ POST http://localhost:3000/users HTTP/1.1
 content-type: application/json
 
 {
-    "name": "stephen"
-}
-
-### 
-POST http://localhost:3000/users HTTP/1.1
-content-type: application/json
-
-{
-    "name": "john"
+    "name": "stephen",
+    "goals" : "633ef3cbb3755c8a988ae056"
 }
 
 ###
 GET http://localhost:3000/users HTTP/1.1
 
-
 ###
-GET http://localhost:3000/users/me HTTP/1.1
+GET http://localhost:3000/users/goals HTTP/1.1
 
 
 ###
@@ -28,5 +20,22 @@ content-type: application/json
 {
     "title": "TASK_01",
     "type": "TYPE_01",
-    "user":  "633de993e6229d82cc1d1b88"
+    "user":  "633ef3e3b3755c8a988ae05b"
 }
+
+###
+GET http://localhost:3000/tasks HTTP/1.1
+
+
+###
+POST http://localhost:3000/goals HTTP/1.1
+content-type: application/json
+
+{
+    "title": "GOAL_01",
+    "type": "GOAL_01",
+    "user":  "633ef3e3b3755c8a988ae05b"
+}
+
+###
+GET http://localhost:3000/goals HTTP/1.1
