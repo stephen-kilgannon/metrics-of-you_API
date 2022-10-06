@@ -21,7 +21,7 @@ router.get('/goals', async (req, res) => {
   res.send(usergoals);
 });
 
-router.post('/goal', function(req, res, next){
+router.post('/goal', function(req, res){
   var newgoal = new model.Goal(req.body);
   newgoal.save()
        .then(item => {

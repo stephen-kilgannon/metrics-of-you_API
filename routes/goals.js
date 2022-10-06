@@ -5,17 +5,17 @@ const Goal = require('../util/models/Goal');
 
 /* GET tasks listing. */
 
-router.get('/', async (req, res, next) => {
+router.get('/', async (req, res) => {
   const goal = await Goal.find()
   res.send(goal);
 });
 
-router.get('/me', async (req, res, next) => {
+router.get('/me', async (req, res) => {
   const goal = await Goal.findByName('stephen')
   res.send(goal);
 });
 
-router.post('/', function(req, res, next){
+router.post('/', function(req, res){
   var newgoal = new Goal(req.body);
   newgoal.save()
        .then(item => {

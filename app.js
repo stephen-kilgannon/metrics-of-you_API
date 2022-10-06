@@ -14,7 +14,7 @@ const goalsRouter = require('./routes/goals');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/mof_Database', () => {
+mongoose.connect('mongodb+srv://admin:admin@typescript.2cbfrnv.mongodb.net/?retryWrites=true&w=majority', () => {
     console.log("DB connected")
 }, e => console.error(e)),
 
